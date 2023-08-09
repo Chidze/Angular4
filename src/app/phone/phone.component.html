@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="header">
+        <div>My phone book!</div>
+    </div>
+    <div class="hr"></div>
+    <div class="search-block">
+        <input type="text" (input)="mark()" class="input" [(ngModel)]="find" placeholder="search text goes here"><div class="x-mark" *ngIf="xMark"></div>
+        <button type="button" class="add" (click)="create()">add phone</button>
+    </div>
+    <div class="phone-box">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="th">
+                    <ng-container *ngIf="sortF; then thenTemplate1; else elseTemplate1"></ng-container>
+                    <ng-template #thenTemplate1>
+                    <button type="button" class="table-button" (click)="sortFirst('first','asc')">First name</button><div class="mark1" *ngIf="triangleF"></div>
+                    </ng-template>
+                    <ng-template #elseTemplate1>
+                    <button type="button" class="table-button" (click)="sortFirst('first','desc')">First name</button><div class="mark1-2" *ngIf="!triangleF"></div> 
+                    </ng-template>
+                    </th>
+                    <th class="th">
+                    <ng-container *ngIf="sortL; then thenTemplate2; else elseTemplate2"></ng-container>
+                    <ng-template #thenTemplate2>
+                    <button type="button" class="table-button" (click)="sortLast('second','asc')">Last name</button><div class="mark2" *ngIf="triangleL"></div>
+                    </ng-template>
+                    <ng-template #elseTemplate2>
+                    <button type="button" class="table-button" (click)="sortLast('second','desc')">Last name</button><div class="mark2-2" *ngIf="!triangleL"></div>
+                    </ng-template>
+                    </th>
+                    <th class="th">
+                    <ng-container *ngIf="sortN; then thenTemplate3; else elseTemplate3"></ng-container>
+                    <ng-template #thenTemplate3>
+                    <button type="button" class="table-button" (click)="sortNumber('number','asc')">Number</button><div class="mark3" *ngIf="triangleN"></div>
+                    </ng-template> 
+                    <ng-template #elseTemplate3>
+                    <button type="button" class="table-button" (click)="sortNumber('number','desc')">Number</button><div class="mark3-2" *ngIf="!triangleN"></div>
+                    </ng-template> 
+                    </th>
+                    <th class="th">edit</th>
+                    <th class="th">delete</th>
+                </tr >
+            </thead>
+            <tbody class="tableBody" *ngFor="let item of contact| search:find | sort:name:type ; index as i">
+                <tr>
+                <th>{{ item.first | titlecase }}</th>
+                <th>{{ item.second| titlecase }}</th>
+                <th>{{ item.number }}</th>
+                <th><button (click) = "edit(i)" [ngStyle] = "editStyle">Edit</button></th>
+                <th><button (click) = "delete(i)" [ngStyle] = "deleteStyle">Delete</button></th> 
+            </tr> 
+    </tbody>
+        </table>
+        <div class="addEdit" *ngIf="show">
+            <div class="addEdit-box">
+            <div class="addEdit-header">Add phone<div class="x-mark" (click)="close()"></div></div>
+            <div class="hr"></div>
+            <input type="text"  class = "addEdit-Input" (input)="read()" [(ngModel)]="firstName" placeholder="first name goes here">
+            <input type="text"  class = "addEdit-Input" (input)="read()" [(ngModel)]="lastName" placeholder="second name goes here">
+            <input type="number"  class = "addEdit-Input" (input)="read()" [(ngModel)]="phoneNumber" placeholder="number phone goes here">
+            <div class="hr"></div>
+            <button type="button" class="addEdit-save" (click)="save()" [disabled] ="!correct">Save</button>
+        </div>
+        </div>
+    </div>
+    </div>

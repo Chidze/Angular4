@@ -1,0 +1,154 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 70px;
+    
+}
+.header{
+    font-size: 30px;
+    color: rgb(228, 66, 66);
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.hr{
+    width: 90%;
+    height: 1px;
+    background-color: rgb(214, 214, 214);
+    margin: 15px 0;
+}
+.input{
+    width: 76.7%;
+    height: 25px;
+    border-radius: 3px;
+    border: 2px solid rgb(214, 214, 214);
+    padding-left: 10px;
+    background-color: rgb(244, 244, 244);
+}
+input:focus{
+    border:none;
+    outline: 3px solid rgb(116, 183, 255);
+    
+}
+.x-mark{
+    width: 15px;
+    height: 15px;
+    background-image: url(./img/xmark-solid.svg);
+    background-size: 100% 100%;
+    position: absolute;
+    top: 83px;
+    right: 286px;
+}
+.add{
+    margin-left: 15px;
+    width: 180px;
+    height: 29px;
+    background-color: rgb(27, 161, 27);
+    color:white;
+    border-radius: 5px;
+    border: none;
+}
+.table{
+    margin-top: 25px;
+    width: 90%;
+    border-top: 1px solid rgb(214, 214, 214);
+    border-collapse: collapse;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 400;
+    &-button{
+        border: none;
+        font-size: 14px;
+        font-family: sans-serif;
+        font-weight: 600;
+    }
+}
+
+tbody tr:hover{
+   background-color: rgba(210, 210, 210, 0.593);
+}
+
+.th{
+    height: 35px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+}
+th{
+    height: 35px;
+}
+
+.addEdit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(164, 163, 163, 0.636);
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    &-box{
+        padding: 20px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(244, 244, 244);
+        font-size: 20px;
+        font-weight: bolder;
+        font-family: sans-serif;
+    }
+    &-Input{
+        height: 30px;
+        border-radius: 3px;
+        border: 2px solid rgb(214, 214, 214);
+        padding-left: 10px;
+        background-color: rgb(244, 244, 244);
+        margin: 10px 0;
+    }
+    &-save{
+       width: 50px;
+       height: 35px;
+       border: none;
+       border-radius: 3px;
+       color: white;
+       background-color: rgb(17, 128, 246);
+       align-self: end;
+    }
+   
+    .hr{
+        width: 100%;
+    }
+    .x-mark{
+        display: block;
+        width: 23px;
+        height: 23px;
+        top: 203px;
+        left: 940px;
+    }
+}
+.mark1,.mark2,.mark3,.mark1-2,.mark2-2,.mark3-2{
+    width: 20px;
+    height: 20px;
+    background-image: url(./img/caret-down-solid.svg);
+    background-size: 100% 100%;
+    position: absolute;
+}
+.mark1-2,.mark2-2,.mark3-2{
+    background-image: url(./img/caret-up-solid.svg);
+}
+.mark1,.mark1-2{
+    top: 137px;
+    left: 272px;
+}
+.mark2,.mark2-2{
+    top: 137px;
+    left: 580px;
+}
+.mark3,.mark3-2{
+    top: 137px;
+    left: 885px;
+}
